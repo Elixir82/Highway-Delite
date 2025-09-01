@@ -59,7 +59,7 @@ function SignUpPage() {
   const [signupLoading, setSignupLoading] = useState(false);
   const [otpLoading, setOtpLoading] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
-  const [keepLoggedIn, setKeepLoggedIn] = useState(false);
+  const [keepLoggedIn] = useState(false);
   const [resendCooldown, setResendCooldown] = useState(0);
 
   useEffect(() => {
@@ -105,7 +105,7 @@ function SignUpPage() {
 
     try {
       setSignupLoading(true);
-      const resp = await axios.post<ReturnedUser>('https://highway-delite-1-xnb2.onrender.com/auth/signup', {
+      await axios.post<ReturnedUser>('https://highway-delite-1-xnb2.onrender.com/auth/signup', {
         name,
         email,
         dob,
@@ -162,7 +162,7 @@ function SignUpPage() {
 
   const resendOtp = async () => {
     try {
-      const resp = await axios.post('https://highway-delite-1-xnb2.onrender.com/auth/resend', {
+      await axios.post('https://highway-delite-1-xnb2.onrender.com/auth/resend', {
         email: userDetail.email,
       });
       setInfoMessage("OTP resent successfully! Please check your inbox and spam folder.");

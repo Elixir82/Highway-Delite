@@ -77,7 +77,7 @@ function LoginPage() {
   const handleLoginRequest = async () => {
     try {
       setLoading(true);
-      const resp = await axios.post<loginResponse>(
+      await axios.post<loginResponse>(
         "https://highway-delite-1-xnb2.onrender.com/auth/login",
         { email }
       );
@@ -123,7 +123,7 @@ function LoginPage() {
   const handleResendOtp = async () => {
     try {
       setLoading(true);
-      const resp = await axios.post<loginResponse>(
+      await axios.post<loginResponse>(
         "https://highway-delite-1-xnb2.onrender.com/auth/resend",
         { email }
       );
