@@ -8,8 +8,8 @@
     "target": "ESNext",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "lib": ["ESNext", "DOM"],  // ← ADD "DOM" HERE!
-
+    "lib": ["ESNext"],  // ← ADD "DOM" HERE!
+    "types": ["node", "express", "jsonwebtoken", "mongoose", "nodemailer"],
     /* Other Outputs */
     "sourceMap": true,
     "declaration": true,
