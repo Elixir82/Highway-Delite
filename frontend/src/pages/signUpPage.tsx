@@ -201,7 +201,7 @@ function SignUpPage() {
               <label className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
               <input
                 type="text"
-                placeholder="Jonas Khanwald"
+                placeholder="Utkarsh Yadav"
                 value={userDetail.name}
                 onChange={(e) => setUserDetail({ ...userDetail, name: e.target.value })}
                 disabled={otpSent}
@@ -226,7 +226,7 @@ function SignUpPage() {
               <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
               <input
                 type="email"
-                placeholder="jonas_khanwald@gmail.com"
+                placeholder="uy06785@gmail.com"
                 value={userDetail.email}
                 onChange={(e) => setUserDetail({ ...userDetail, email: e.target.value })}
                 disabled={otpSent}
