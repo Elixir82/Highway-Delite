@@ -37,7 +37,7 @@ function LoginPage() {
   const [resendCooldown, setResendCooldown] = useState(0);
   const navigate = useNavigate();
 
-  // Countdown timer for resend OTP cooldown
+  
   useEffect(() => {
   let interval: number | undefined;
   if (resendCooldown > 0) {
@@ -54,7 +54,7 @@ function LoginPage() {
 
   const handleGoogleSuccess = async (credentialResponse: any) => {
     try {
-      const resp = await axios.post("http://localhost:8000/auth/authGoogle", {
+      const resp = await axios.post("https://highway-delite-1-xnb2.onrender.com/auth/authGoogle", {
         token: credentialResponse.credential,
       });
 
@@ -78,13 +78,13 @@ function LoginPage() {
     try {
       setLoading(true);
       const resp = await axios.post<loginResponse>(
-        "http://localhost:8000/auth/login",
+        "https://highway-delite-1-xnb2.onrender.com/auth/login",
         { email }
       );
       setOtpSent(true);
       setError(null);
       setMessage("OTP sent successfully! Please check your inbox and spam folder.");
-      setResendCooldown(30); // Start cooldown after sending OTP
+      setResendCooldown(30);
     } catch (err: any) {
       setMessage(null);
       setError(err.response?.data?.message || "Login failed. Please try again.");
@@ -97,7 +97,7 @@ function LoginPage() {
     try {
       setLoading(true);
       const resp = await axios.post<loginVerifyResponse>(
-        "http://localhost:8000/auth/loginverify",
+        "https://highway-delite-1-xnb2.onrender.com/auth/loginverify",
         {
           email,
           otp,
@@ -106,7 +106,6 @@ function LoginPage() {
 
       const { token, user } = resp.data;
 
-      // Use the context login function ONLY - it will handle localStorage
       login(
         { name: user.name, email: user.email, id: user._id },
         token,
@@ -125,12 +124,12 @@ function LoginPage() {
     try {
       setLoading(true);
       const resp = await axios.post<loginResponse>(
-        "http://localhost:8000/auth/resend",
+        "https://highway-delite-1-xnb2.onrender.com/auth/resend",
         { email }
       );
       setMessage("OTP resent successfully! Please check your inbox and spam folder.");
       setError(null);
-      setResendCooldown(30); // Reset cooldown after resending
+      setResendCooldown(30);
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to resend OTP.");
     } finally {

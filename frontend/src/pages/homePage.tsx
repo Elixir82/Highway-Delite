@@ -6,7 +6,7 @@ interface INotes {
   _id: string;
   title: string;
   content: string;
-  User: string; // Keep this as is, but check backend consistency
+  User: string; 
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -41,7 +41,7 @@ function HomePage() {
       setError(null);
       // console.log("Token: ", token); 
 
-      const response = await axios.get<NotesResponse>("http://localhost:8000/home/notes", {
+      const response = await axios.get<NotesResponse>("https://highway-delite-1-xnb2.onrender.com/home/notes", {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json"
@@ -69,7 +69,7 @@ function HomePage() {
       setError(null);
 
       const response = await axios.post<INotes>(
-        "http://localhost:8000/home/addNote",
+        "https://highway-delite-1-xnb2.onrender.com/home/addNote",
         {
           title: note.title,
           content: note.content,
@@ -98,7 +98,7 @@ function HomePage() {
       setLoading(true);
       setError(null);
 
-      await axios.delete(`http://localhost:8000/home/deleteNote/${noteId}`, {
+      await axios.delete(`https://highway-delite-1-xnb2.onrender.com/home/deleteNote/${noteId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json"
@@ -120,7 +120,7 @@ function HomePage() {
 
   useEffect(() => {
     if (token) {
-      console.log("Token available, fetching notes..."); // Debug log
+      // console.log("Token available, fetching notes..."); 
       getNotes();
     }
   }, [token, note, setNote]);
