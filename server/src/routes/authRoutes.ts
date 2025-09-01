@@ -1,0 +1,11 @@
+import express from "express";
+import { emailSignup, otpVerify, emailLogin, loginOtpVerify, resendOtp} from '../controllers/authController.js';
+import { googleAuth } from "../controllers/googleAuthController.js";
+const router = express.Router();
+router.post('/signup',emailSignup);
+router.post('/signupverify',otpVerify);
+router.post('/login',emailLogin);
+router.post('/loginverify',loginOtpVerify);
+router.post('/authGoogle',googleAuth);
+router.post('/resend',resendOtp);
+export default router;
