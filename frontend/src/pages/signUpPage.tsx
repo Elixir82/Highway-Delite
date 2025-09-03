@@ -114,7 +114,7 @@ function SignUpPage() {
       setOtpSent(true);
       setError(null);
       setInfoMessage("OTP sent successfully! Please check your inbox and spam folder for OTP.");
-      setResendCooldown(30); 
+      setResendCooldown(30);
     } catch (err: any) {
       setError(err.response?.data?.message || 'Signup failed. Please try again.');
     } finally {
@@ -252,8 +252,8 @@ function SignUpPage() {
                   disabled={resendCooldown > 0}
                   className="mt-2 text-sm text-blue-500 hover:text-blue-600 disabled:text-gray-400 disabled:cursor-not-allowed"
                 >
-                  {resendCooldown > 0 
-                    ? `Resend OTP in ${resendCooldown}s` 
+                  {resendCooldown > 0
+                    ? `Resend OTP in ${resendCooldown}s`
                     : "Resend OTP"}
                 </button>
               </div>
@@ -283,17 +283,17 @@ function SignUpPage() {
             {infoMessage && (
               <div className="bg-green-50 border border-green-200 rounded-lg p-3">
                 <p className="text-green-700 text-sm text-center">
-                  {infoMessage.split('spam').map((part, i, arr) => 
-                    i === arr.length - 1 ? part : 
-                    <span key={i}>
-                      {part}
-                      <span className="font-bold text-green-800">spam</span>
-                    </span>
+                  {infoMessage.split('spam').map((part, i, arr) =>
+                    i === arr.length - 1 ? part :
+                      <span key={i}>
+                        {part}
+                        <span className="font-bold text-green-800">spam</span>
+                      </span>
                   )}
                 </p>
               </div>
             )}
-            
+
             {error && (
               <div className="bg-red-50 border border-red-200 rounded-lg p-3">
                 <p className="text-red-700 text-sm text-center">{error}</p>
@@ -319,6 +319,12 @@ function SignUpPage() {
                 Sign in
               </button>
             </p>
+            {/* Deployment Notice */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mt-4">
+              <p className="text-blue-700 text-xs text-center">
+                ℹ️ Note: As this project is hosted on a free tier, the first request may take up to a minute to load after periods of inactivity. Once active, it will work normally.
+              </p>
+            </div>
           </div>
         </div>
       </div>

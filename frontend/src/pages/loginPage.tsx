@@ -282,6 +282,12 @@ function LoginPage() {
                 Sign up
               </button>
             </p>
+            {/* Deployment Notice */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mt-4">
+              <p className="text-blue-700 text-xs text-center">
+                ℹ️ Note: As this project is hosted on a free tier, the first request may take up to a minute to load after periods of inactivity. Once active, it will work normally.
+              </p>
+            </div>
           </div>
         </div>
       </div>
